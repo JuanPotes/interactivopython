@@ -88,6 +88,16 @@ body {
   margin-top: 5px;
 }
 
+.related-post{
+  text-align: center;
+}
+
+.related-post a{
+  text-decoration: none;
+  color:#02c39a ;
+}
+
+
 .container > .related-post {
   background: #2d3456;
   color: #ffffff;
