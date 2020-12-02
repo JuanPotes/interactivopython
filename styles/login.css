@@ -1,236 +1,288 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
-
-:root{
-  --first-color: #48bfe3;
-  --first-color-amarillo: #ffbe0b;
-  --first-color-light: #A49EAC;
-  --first-color-lighten: #F2F2F2;
-
-  --body-font: 'Open Sans', sans-serif;
-  --h1-font-size: 1.5rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-}
-
-@media screen and (min-width: 768px){
-  :root{
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-  }
-}
-
-*,::before,::after{
-  box-sizing: border-box;
-}
-
 body{
+  font-family: sans-serif;
   margin: 0;
-  padding: 0;
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  color: var(--first-color-amarillo);
+  line-height: 1.5;
 }
 
-h1{
+*{
+  box-sizing: border-box;
   margin: 0;
 }
 
-a{
-  text-decoration: none;
+.pagina-login{
+  min-height: 100vh;
+  padding: 15px;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-img{
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.login{
-  display: grid;
-  grid-template-columns: 100%;
-  height: 100vh;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.login__content{
-  display: grid;
-}
-
-.login__img{
-  justify-self: center;
-}
-
-.login__img img{
-  width: 310px;
-  margin-top: 1.5rem;
-}
-
-.login__forms{
+.pagina-login .box{
+  background-image: url(https://wpart.org/wp-content/uploads/2017/07/developer-wallpaper-tag-php.jpg);
+  background-size: cover;
+  background-position: -160px center;
+  background-repeat: repeat-x;
+  flex: 0 0 700px;
+  max-width: 700px;
+  min-height: 600px;
+  box-shadow: 0 0 10px #000000;
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
-  height: 368px;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
 }
 
-.login__registre, .login__create{
+.pagina-login .box.slide-active{
+  background-position: -160px center;
+}
+
+
+
+.pagina-login .box::before{
+  content: '';
   position: absolute;
-  bottom: 1rem;
+  left: 0;
+  top: 0;
   width: 100%;
-  background-color: var(--first-color-lighten);
-  padding: 2rem 1rem;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(35,0,77,.2);
-  animation-duration: .4s;
-  animation-name: animate-login;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-@keyframes animate-login{
-  0%{
-    transform: scale(1,1);
-  }
-  50%{
-    transform: scale(1.1,1.1);
-  }
-  100%{
-    transform: scale(1,1);
-  }
+.pagina-login .box .izquierda,
+.pagina-login .box .derecha{
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 0;
 }
 
-.login__title{
-  font-size: var(--h1-font-size);
-  margin-bottom: 2rem;
+.pagina-login .box .izquierda h3,
+.pagina-login .box .derecha h3{
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0 0 15px;
 }
 
-.login__box{
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  column-gap: .5rem;
-  padding: 1.125rem 1rem;
-  background-color: #FFF;
-  margin-top: 1rem;
-  border-radius: .5rem;
+.pagina-login .box .izquierda .registrarse-btn,
+.pagina-login .box .derecha .login-btn{
+  background-color: transparent;
+  padding: 10px 35px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 25px;
 }
 
-.login__icon{
-  font-size: 1.5rem;
-  color: var(--first-color);
-}
-
-.login__input{
-  border: none;
+.pagina-login .box .izquierda .registrarse-btn:focus,
+.pagina-login .box .derecha .login-btn:focus{
   outline: none;
-  font-size: var(--normal-font-size);
-  font-weight: 700;
-  color: var(--first-color-amarillo);
 }
 
-.login__input::placeholder{
-  font-size: var(--normal-font-size);
-  font-family: var(--body-font);
-  color: var(--first-color-light);
+.pagina-login .box .form{
+  position: absolute;
+  background-color: #ffffff;
+  height: 100%;
+  width: 50%;
+  right: 0;
+  top: 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+.pagina-login .box.slide-active .form{
+  right: 50%;
 }
 
-.login__forgot{
-  display: block;
-  width: max-content;
-  margin-left: auto;
-  margin-top: .5rem;
-  font-size: var(--small-font-size);
-  font-weight: 600;
-  color: var(--first-color-light);
+.pagina-login .box .form h3{
+  font-size: 20px;
+  color: #000000;
+  margin: 0 0 30px;
 }
 
-.login__button{
-  display: block;
-  padding: 1rem;
-  margin: 2rem 0;
-  background-color: var(--first-color);
-  color: #FFF;
-  font-weight: 600;
-  text-align: center;
-  border-radius: .5rem;
-  transition: .3s;
+.pagina-login .box  .form .form-grupo{
+  margin-bottom: 20px;
 }
 
-.login__button:hover{
-  background-color: var(--first-color-amarillo);
+.pagina-login .box .form .forgot-form,
+.pagina-login .box .form .login-form,
+.pagina-login .box .form .register-form{
+  transition: all 0.5s ease-in-out;
 }
 
-.login__account, .login__signin, .login__signup{
-  font-weight: 600;
-  font-size: var(--small-font-size);
-}
 
-.login__account{
-  color: var(--first-color-amarillo);
+.pagina-login .box .form .form-control{
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+  color: #000000;
+  border: none;
+  border-bottom:1px solid #cccccc;
+  padding: 0;
 }
-
-.login__signin, .login__signup{
-  color: var(--first-color);
+.pagina-login .box .form .form-control:focus{
+  outline: none;
+}
+.pagina-login .box .form label{
+  font-size: 16px;
+  color: #555555;
+}
+.pagina-login .box .form .submit-btn{
+  width: 100%;
+  height: 40px;
+  background-color:#06d6a0;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-top: 10px;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.login__social{
-  margin-top: 2rem;
+.pagina-login .box .form .submit-btn:focus{
+  outline: none;
+}
+.pagina-login .box .form p{
+  margin-top: 20px;
+  text-align: center;
 }
 
-.login__social-icon{
-  font-size: 1.5rem;
-  color: var(--first-color-amarillo);
-  margin: 0 1.5rem;
+.pagina-login .box .form h5{
+  font-size: 15px;
+  color: #555555;
+  margin: 0 0 30px;
+  font-weight: normal;
 }
 
-.block{
-  display: block;
+.pagina-login .box .form p a{
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  color: #3f51b5;
 }
 
-.none{
+.pagina-login .box .form .form-hidden{
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+  overflow: hidden;
+}
+
+@media(max-width: 767px){
+  .pagina-login .box{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 575px){
+  .pagina-login .box .form{
+    width: 100%;
+    position: relative;
+    right: auto;
+    top: auto;
+    height: auto;
+  }
+  .pagina-login .box,
+  .pagina-login .box.slide-active{
+    background-position: center;
+  }
+
+  .pagina-login .box .izquierda h3, .pagina-login .box .derecha h3{
+    font-size: 16px;
+  }
+
+  .pagina-login .box.slide-active .form{
+    right: auto;
+    
+  }
+}
+
+.form-grupo .fa{
+  position: absolute;
+  top: 35%;
+  right: 10%;
   display: none;
 }
 
-@media screen and (min-width: 576px){
-  .login__forms{
-    width: 348px;
-    justify-self: center;
-  }
+.form-grupo .fas{
+  position: absolute;
+  top: 46%;
+  right: 10%;
+  display: none;
 }
 
-@media screen and (min-width: 1024px){
-  .login{
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .login__content{
-    grid-template-columns: repeat(2, max-content);
-    justify-content: center;
-    align-items: center;
-    margin-left: 10rem;
-  }
-
-  .login__img{
-    display: flex;
-    width: 600px;
-    height: 588px;
-    background-color: var(--first-color-lighten);
-    border-radius: 1rem;
-    padding-left: 1rem;
-  }
-
-  .login__img img{
-    width: 390px;
-    margin-top: 0;
-  }
-
-  .login__registre, .login__create{
-    left: -11rem;
-  }
-
-  .login__registre{
-    bottom: -2rem;
-  }
-
-  .login__create{
-    bottom: -5.5rem;
-  }
+.form-grupo .reg_m{
+  position: absolute;
+  top: 39%;
+  right: 10%;
+  display: none;
 }
+
+.form-grupo .reg_p{
+  position: absolute;
+  top: 49%;
+  right: 10%;
+  display: none;
+}
+
+.form-grupo .reg_c{
+  position: absolute;
+  top: 60%;
+  right: 10%;
+  display: none;
+}
+
+.u_times{
+  color: red;
+}
+
+.u_check{
+  color: #06d6a0;
+}
+
+.p_times{
+  color: red;
+}
+
+.p_check{
+  color: #06d6a0;
+}
+
+.h_times{
+  color: red;
+}
+
+.h_check{
+  color: #06d6a0;
+}
+
+.n_times{
+  color: red;
+}
+
+.n_check{
+  color: #06d6a0;
+}
+
+.d_times{
+  color: red;
+}
+
+.d_check{
+  color: #06d6a0;
+}
+
+
+
+
+

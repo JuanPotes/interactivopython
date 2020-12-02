@@ -1,85 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/login.css">
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-        <title>Login curso de Python!</title>
-        <link rel="icon" href="https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/267_Python-512.png">
-    </head>
-    <body>
-        <div class="login">
-            <div class="login__content">
-                <div class="login__img">
-                    <img src="img/loginimg.png" alt="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+    <form class="pagina-login" onkeydown="validacion()">
+       <div class="box">
+           <div class="izquierda">
+               <h3>Registrate</h3>
+               <button type="button" class="registrarse-btn">Registrate</button>
+           </div>
+           <div class="derecha">
+            <h3>Ya tienes una cuenta?</h3>
+            <button type="button" class="login-btn">Loguearse</button>
+           </div>
+           <div class="form">
+               <div class="login-form">
+                   <h3>Loguearse</h3>
+                   <div class="form-grupo" id="form">
+                       <input type="text" placeholder="Direccion email*" class="form-control" id="email">
+                       <i class="fa fa-times u_times"></i>
+                       <i class="fa fa-check u_check"></i>
+                   </div>
+                   <div class="form-grupo">
+                    <input type="password" placeholder="Contraseña* (Minimo de 11 caracteres)" class="form-control" id="password">
+                    <i class="fas fa-times p_times"></i>
+                    <i class="fas fa-check p_check"></i>
+                   </div>
+                   <div class="form-grupo">
+                       <label>
+                           <input type="checkbox">Recuerdame!
+                       </label>
+                   </div>
+                   <a href="inicio.html"><button type="button" class="submit-btn">Entrar</button></a>
+                   <p><a href="#" class="registrarse-btn">Registrarse</a> | <a href="#" class="contraseña-olvidada-btn">Perdiste tu contraseña?</a></p>
+                   <div id="error"></div>
+               </div>
+               <div class="register-form form-hidden">
+                <h3>Registrarse</h3>
+                <div class="form-grupo">
+                    <input type="text" placeholder="Tu nombre" class="form-control">
                 </div>
-
-                <div class="login__forms">
-                    <form action="" class="login__registre" id="login-in">
-                        <h1 class="login__title">Logueate</h1>
-    
-                        <div class="login__box">
-                            <i class='bx bx-user login__icon'></i>
-                            <input type="text" placeholder="Usuario" class="login__input">
-                        </div>
-    
-                        <div class="login__box">
-                            <i class='bx bx-lock-alt login__icon'></i>
-                            <input type="password" placeholder="Contraseña" class="login__input">
-                        </div>
-
-                        <a href="#" class="login__forgot">Olvidaste tu contraseña?</a>
-
-                        <a href="inicio.html" class="login__button">Entrar al curso</a>
-
-                        <div>
-                            <span class="login__account">No tienes una cuenta?</span>
-                            <span class="login__signin" id="sign-up">Registrarse</span>
-                        </div>
-                    </form>
-
-                    <form action="" class="login__create none" id="login-up">
-                        <h1 class="login__title">Registrarse</h1>
-    
-                        <div class="login__box">
-                            <i class='bx bx-user login__icon'></i>
-                            <input type="text" placeholder="Usuario" class="login__input">
-                        </div>
-    
-                        <div class="login__box">
-                            <i class='bx bx-at login__icon'></i>
-                            <input type="text" placeholder="Email" class="login__input">
-                        </div>
-
-                        <div class="login__box">
-                            <i class='bx bx-lock-alt login__icon'></i>
-                            <input type="password" placeholder="Contraseña" class="login__input">
-                        </div>
-
-                        <div class="login__box">
-                            <i class='bx bx-lock-alt login__icon'></i>
-                            <input type="password" placeholder="Confirmar contraseña" class="login__input">
-                        </div>
-
-                        <a href="#" class="login__button">Registrarse</a>
-
-                        <div>
-                            <span class="login__account">Ya tienes una cuenta?</span>
-                            <span class="login__signup" id="sign-in">Loguearse</span>
-                        </div>
-
-                        <div class="login__social">
-                            <a href="#" class="login__social-icon"><i class='bx bxl-facebook' ></i></a>
-                            <a href="#" class="login__social-icon"><i class='bx bxl-twitter' ></i></a>
-                            <a href="#" class="login__social-icon"><i class='bx bxl-google' ></i></a>
-                        </div>
-                    </form>
+                <div class="form-grupo">
+                    <input type="text" placeholder="Tus apellidos" class="form-control">
                 </div>
+                <div class="form-grupo">
+                    <input type="text" placeholder="Direccion email*" class="form-control" id="emailregister">
+                    <i class="fa fa-times h_times reg_m"></i>
+                    <i class="fa fa-check h_check reg_m"></i>
+                </div>
+                <div class="form-grupo">
+                 <input type="password" placeholder="Contraseña* (Minimo de 11 caracteres)" class="form-control" id="passwordregister">
+                    <i class="fa fa-times n_times reg_p"></i>
+                    <i class="fa fa-check n_check reg_p"></i>
+                </div>
+                <div class="form-grupo">
+                    <input type="password" placeholder="Confirmar contraseña*" class="form-control" id="confirmpassword">
+                    <i class="fa fa-times d_times reg_c"></i>
+                    <i class="fa fa-check d_check reg_c"></i>
+                   </div>
+                   <div class="form-grupo">
+                    <input type="tel" placeholder="Telefono de contacto" class="form-control">
+                   </div>
+
+                <button type="submit" class="submit-btn">Registrarse</button>
+                <p><a href="#" class="login-btn">Loguearse</a> | <a href="#" class="contraseña-olvidada-btn">Perdiste tu contraseña?</a></p>
             </div>
-        </div>
-
-        <!--===== MAIN JS =====-->
-        <script src="js/login.js"></script>
-    </body>
+            <div class="forgot-form form-hidden">
+                <h3>Olvidaste tu contraseña?</h3>
+                <h5>Recibiras un mail con un link para volver a crear tu contraseña.</h5>
+                <div class="form-grupo">
+                    <input type="text" placeholder="Direccion email*" class="form-control" id="email">
+                </div>
+                <button type="submit" class="submit-btn">Resetear contraseña</button>
+                <p><a href="#" class="login-btn">Loguearse</a> | <a href="#" class="registrarse-btn">Registrarse</a></p>
+            </div>
+           </div>
+       </div>
+    </form>
+   <script src="js/script.js"></script>
+   <script src="js/validacionCampos.js"></script>
+</body>
 </html>

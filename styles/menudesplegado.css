@@ -24,7 +24,7 @@ header label:hover{
 
 .menu li:hover{
     cursor: pointer;
-    background: #ffffff;
+    background: white;
     transition: all 0.5s ease;
     justify-content: center;
     display: flex;
@@ -44,7 +44,7 @@ header label:hover{
     }
 
     .menu{
-        background: #02c39a;
+        background: #7765e3;
         position: absolute;
         width: 70%;
         margin-left: -90%;
